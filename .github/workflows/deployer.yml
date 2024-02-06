@@ -1,6 +1,10 @@
 name: Cloud Function Deploy Workflow
 
 on:
+  workflow_call:
+    secrets:
+      GOOGLE_APPLICATION_CREDENTIALS:
+        required: true
   push:
     branches:
       - master
