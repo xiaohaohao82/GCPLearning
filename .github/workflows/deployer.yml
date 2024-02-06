@@ -1,10 +1,6 @@
 name: Cloud Function Deploy Workflow
 
 on:
-  workflow_call:
-    secrets:
-      GOOGLE_APPLICATION_CREDENTIALS:
-        required: true
   push:
     branches:
       - master
@@ -27,7 +23,7 @@ jobs:
       - name: Authenticate on Google Cloud
         uses: google-github-actions/auth@v0.4.0
         with:
-          credentials_json: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+          credentials_json: ${{ secrets.GCLOUD_SERVICE_ACCOUNT_KEY }}
       - name: Deploy on Google Cloud
         id: deploy
         uses: google-github-actions/deploy-cloud-functions@v0
