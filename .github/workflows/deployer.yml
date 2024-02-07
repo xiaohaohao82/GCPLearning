@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v2
         with:
-          java-version: 18
+          java-version: 17
           distribution: adopt
       - uses: axel-op/package-java-google-cloud-function@main
         id: package
@@ -32,3 +32,4 @@ jobs:
           region: ${{ env.REGION }}
           source_dir: ${{ steps.package.outputs.deployment-directory }}
           entry_point: ${{ env.ENTRYPOINT }}
+          runtime: java17
