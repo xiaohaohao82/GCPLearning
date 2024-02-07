@@ -32,4 +32,3 @@ jobs:
           region: ${{ env.REGION }}
           source_dir: ${{ steps.package.outputs.deployment-directory }}
           entry_point: ${{ env.ENTRYPOINT }}
-          runtime: java18
