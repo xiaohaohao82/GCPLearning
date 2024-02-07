@@ -32,5 +32,7 @@ jobs:
           region: ${{ env.REGION }}
           source_dir: ${{ steps.package.outputs.deployment-directory }}
           entry_point: ${{ env.ENTRYPOINT }}
-          trigger_topic: 'product_arrangement_event_topic'
+          event_trigger_type: 'google.pubsub.topic.publish'
+          event_trigger_resource: 'projects/${PROJECT_VALUE}/topics/product_arrangement_event_topic'
+          event_trigger_service: pubsub.googleapis.com
           runtime: java17
