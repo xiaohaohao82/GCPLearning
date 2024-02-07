@@ -10,8 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     env:
       REGION: europe-west1
+      PROJECT_ID: hao-wang-solita-lab
       FUNCTION_NAME: Cloud-Function-SubscribeToTopic
       ENTRYPOINT: functions.SubscribeToTopic
+      TOPIC_NAME: product_arrangement_event_topic
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v2
@@ -33,6 +35,6 @@ jobs:
           source_dir: ${{ steps.package.outputs.deployment-directory }}
           entry_point: ${{ env.ENTRYPOINT }}
           event_trigger_type: 'google.pubsub.topic.publish'
-          event_trigger_resource: 'projects/${PROJECT_VALUE}/topics/product_arrangement_event_topic'
+          event_trigger_resource: 'projects/${PROJECT_ID}/topics/${TOPIC_NAME}'
           event_trigger_service: pubsub.googleapis.com
           runtime: java17
