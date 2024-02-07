@@ -20,7 +20,7 @@ jobs:
           distribution: adopt
       - uses: axel-op/package-java-google-cloud-function@main
         id: package
-      - name: Authenticate on Google Cloud
+      - name: Authenticate on Google Cloud 123
         uses: google-github-actions/auth@v2
         with:
           credentials_json: '${{ secrets.GCP_SA_SECRET }}'
