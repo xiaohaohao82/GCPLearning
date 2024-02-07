@@ -32,4 +32,5 @@ jobs:
           region: ${{ env.REGION }}
           source_dir: ${{ steps.package.outputs.deployment-directory }}
           entry_point: ${{ env.ENTRYPOINT }}
+          trigger_topic: 'product_arrangement_event_topic'
           runtime: java17
