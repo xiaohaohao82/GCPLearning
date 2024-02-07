@@ -35,6 +35,6 @@ jobs:
           source_dir: ${{ steps.package.outputs.deployment-directory }}
           entry_point: ${{ env.ENTRYPOINT }}
           event_trigger_type: 'google.pubsub.topic.publish'
-          event_trigger_resource: 'projects/${PROJECT_ID}/topics/${TOPIC_NAME}'
+          event_trigger_resource: 'projects/${{ env.PROJECT_ID}}/topics/${{ env.TOPIC_NAME}}'
           event_trigger_service: pubsub.googleapis.com
           runtime: java17
